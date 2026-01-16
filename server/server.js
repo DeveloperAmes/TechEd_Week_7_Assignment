@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-// import { dbPool } from "./dbConnect.js";
+import { dbPool } from "./dbConnect.js";
 
 const app = express();
 
@@ -16,17 +16,16 @@ app.listen(PORT, () => {
 app.get("/", (req, res) => {
   res.json({ message: "Server is up and running!" });
 });
-// ##########################################
-// app.post("/reviews", (req, res) => {
-//   const reviewsData = req.body.formValues;
-//   const query = dbPool.query(
-//     `INSERT INTO reviews (name, date_visited, review) VALUES ($1, $2, $3)`,
-//     [reviewsData.name, reviewsData.date_visited, reviewsData.review]
-//   );
-//   res.json({ status: "check", values: reviewsData });
-// });
 
-// app.get("/reviews", async (req, res) => {
-//   const apiData = await dbPool.query("SELECT * FROM reviews");
-//   res.json({ apiData });
-// });
+app.get("/recipes", async (req, res) => {
+  const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
+  res.json({ recipesData });
+});
+
+app.post("/new-recipe", (req, res) => {
+  const newRecipeData = req.body.formValues;
+  const query = dbPool.query(
+    `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
+    [newRecipeData.name, newRecipeData.ingredients, newRecipeData.instructions]
+  );
+});
