@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 8080;
+const PORT = 4000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -18,14 +18,26 @@ app.get("/", (req, res) => {
 });
 
 app.get("/recipes", async (req, res) => {
-  const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
-  res.json({ recipesData });
+  try {
+    const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
+    res.json(recipesData);
+  } catch {
+    console.error(error);
+  }
 });
 
 app.post("/new-recipe", (req, res) => {
-  const newRecipeData = req.body.formValues;
-  const query = dbPool.query(
-    `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
-    [newRecipeData.name, newRecipeData.ingredients, newRecipeData.instructions]
-  );
+  try {
+    const newRecipeData = req.body;
+    const query = dbPool.query(
+      `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
+      [
+        newRecipeData.recipe_name,
+        newRecipeData.ingredients,
+        newRecipeData.instructions,
+      ],
+    );
+  } catch (error) {
+    console.error(error);
+  }
 });
