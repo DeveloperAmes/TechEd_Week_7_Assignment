@@ -6,9 +6,10 @@ export default function NewRecipeForm() {
     ingredients: "",
     instructions: "",
   });
+
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(`The form values are ${formValues}`);
+    console.log("form values =", formValues);
     fetch("https://teched-week-7-assignment-server.onrender.com/new-recipe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -17,6 +18,7 @@ export default function NewRecipeForm() {
   }
   function handleChange(event) {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
+    console.log(formValues);
   }
   return (
     <section>
