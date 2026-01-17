@@ -30,7 +30,7 @@ app.post("/new-recipe", (req, res) => {
   try {
     const newRecipeData = req.body;
     const query = dbPool.query(
-      `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
+      "INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)",
       [
         newRecipeData.recipe_name,
         newRecipeData.ingredients,
