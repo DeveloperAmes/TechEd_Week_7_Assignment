@@ -26,18 +26,21 @@ app.get("/recipes", async (req, res) => {
   }
 });
 
-app.post("/new-recipe", (req, res) => {
-  try {
-    const newRecipeData = req.body;
-    const query = dbPool.query(
-      `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
-      [
-        newRecipeData.recipe_name,
-        newRecipeData.ingredients,
-        newRecipeData.instructions,
-      ],
-    );
-  } catch (error) {
-    console.error(error);
-  }
-});
+app.post(
+  "https://teched-week-7-assignment-server.onrender.com/new-recipe",
+  (req, res) => {
+    try {
+      const newRecipeData = req.body;
+      const query = dbPool.query(
+        `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
+        [
+          newRecipeData.recipe_name,
+          newRecipeData.ingredients,
+          newRecipeData.instructions,
+        ],
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  },
+);
