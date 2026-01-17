@@ -7,10 +7,15 @@ import NewRecipeForm from "./components/NewRecipeForm";
 import RecipePosts from "./components/RecipePosts";
 import NotFoundPage from "./components/NotFoundPage";
 import AllRecipes from "./components/AllRecipes";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import SiteInfo from "./components/SiteInfo";
 
 function App() {
   return (
     <>
+      <Header />
+      <SiteInfo />
       <Routes>
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/new-recipe"} element={<NewRecipeForm />} />
@@ -19,6 +24,8 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
