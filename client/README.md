@@ -1,3 +1,3 @@
 issue with render
 
-form not submitting to database
+form data not submitting to database on render but is using postman post request
