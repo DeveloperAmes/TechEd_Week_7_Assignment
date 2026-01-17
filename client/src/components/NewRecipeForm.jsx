@@ -24,6 +24,7 @@ export default function NewRecipeForm() {
           required
           placeholder="1) Heat some oil in a pan..."
         ></input>
+        <button>Add recipe</button>
       </form>
     </section>
   );

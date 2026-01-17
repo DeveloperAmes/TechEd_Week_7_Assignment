@@ -1,16 +1,57 @@
 #root {
   max-width: 1280px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   text-align: center;
   font-family: "Poiret One", sans-serif;
 }
 
+* {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
 header {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+header > h1 {
+  font-size: 2rem;
 }
 
 img {
-  width: 10rem;
+  width: 8rem;
+}
+
+a {
+  color: #fd4141;
+}
+
+button {
+  width: 20%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-section {
+  border: solid black 3px;
+  border-radius: 10px;
+}
+
+.info-li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
 }
