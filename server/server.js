@@ -21,7 +21,7 @@ app.get("/recipes", async (req, res) => {
   try {
     const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
     res.json(recipesData);
-  } catch {
+  } catch (error) {
     console.error(error);
   }
 });
@@ -30,7 +30,7 @@ app.post("/new-recipe", (req, res) => {
   try {
     const newRecipeData = req.body;
     const query = dbPool.query(
-      "INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)",
+      `INSERT INTO wk7posts_recipes (recipe_name, ingredients, instructions) VALUES ($1, $2, $3)`,
       [
         newRecipeData.recipe_name,
         newRecipeData.ingredients,
