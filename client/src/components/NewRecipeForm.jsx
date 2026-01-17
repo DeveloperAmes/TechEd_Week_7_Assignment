@@ -9,7 +9,7 @@ export default function NewRecipeForm() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(`The form values are ${formValues}`);
-    fetch("http://localhost:4000/new-recipe", {
+    fetch("https://teched-week-7-assignment-server.onrender.com/new-recipe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formValues),
