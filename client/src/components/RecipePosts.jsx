@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
 export default function RecipePosts() {
-  let { recipeName } = useParams();
+  let { RecipePosts } = useParams();
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     async function getRecipeInfo() {
@@ -18,7 +18,7 @@ export default function RecipePosts() {
   return (
     <>
       <section className="recipe-info">
-        <h2>{recipeName}</h2>
+        <h2>{RecipePosts}</h2>
         <h3>Ingredients:</h3>
         <ul>
           <li></li>
