@@ -15,10 +15,7 @@ app.listen(PORT, () => {
 
 app.get("/", async (req, res) => {
   try {
-    const recipesData = await dbPool.query(
-      "SELECT recipe_name FROM wk7posts_recipes",
-    );
-    res.json(recipesData);
+    res.json({ message: "server is working" });
   } catch (error) {
     console.error(error);
   }
