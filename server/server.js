@@ -13,11 +13,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.get("/", (req, res) => {
-  res.json({ message: "Server is up and running!" });
-});
-
-app.get("/recipes", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
     res.json(recipesData);
