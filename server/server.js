@@ -15,7 +15,10 @@ app.listen(PORT, () => {
 
 app.get("/", async (req, res) => {
   try {
-    res.json({ message: "server is working" });
+    const recipeData = await dbPool.query(
+      "SELECT recipe_name FROM wk7posts_recipes LIMIT 3",
+    );
+    res.json(recipeData);
   } catch (error) {
     console.error(error);
   }
@@ -32,16 +35,16 @@ app.get("/all-recipes", async (req, res) => {
   }
 });
 
-app.get("/all-recipes/:recipeName", async (req, res) => {
-  try {
-    const recipeData = await dbPool.query(
-      "SELECT recipe_name, ingredients, instructions FROM wk7posts_recipes",
-    );
-    res.json(recipeData);
-  } catch (error) {
-    console.error(error);
-  }
-});
+// app.get("/all-recipes/:recipeName", async (req, res) => {
+//   try {
+//     const recipeData = await dbPool.query(
+//       "SELECT recipe_name, ingredients, instructions FROM wk7posts_recipes",
+//     );
+//     res.json(recipeData);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 app.post("/new-recipe", (req, res) => {
   try {
