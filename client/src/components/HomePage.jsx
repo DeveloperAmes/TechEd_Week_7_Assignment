@@ -5,7 +5,7 @@ export default function HomePage() {
   useEffect(() => {
     async function getRecipesData() {
       const response = await fetch(
-        "https://teched-week-7-assignment.onrender.com/",
+        "https://teched-week-7-assignment-server.onrender.com",
       );
       const data = await response.json();
       setRecipes(data.rows);

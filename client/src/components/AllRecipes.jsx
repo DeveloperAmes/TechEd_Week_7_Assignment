@@ -1,11 +1,13 @@
-import { Outlet, Link } from "react-router";
+// import { Outlet, Link } from "react-router";
 import { useEffect, useState } from "react";
 
 export default function AllRecipes() {
   const [allRecipes, setAllRecipes] = useState([]);
   useEffect(() => {
     async function getAllRecipes() {
-      const response = await fetch("http://localhost:8080/all-recipes");
+      const response = await fetch(
+        "https://teched-week-7-assignment-server.onrender.com/all-recipes",
+      );
       const data = await response.json();
       setAllRecipes(data.rows);
     }
