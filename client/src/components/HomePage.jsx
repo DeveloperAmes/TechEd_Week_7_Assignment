@@ -1,13 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     async function getRecipesData() {
-      const response = await fetch("http://localhost:8080/recipes");
+      const response = await fetch("http://localhost:8080");
       const data = await response.json();
-      const apiData = data.rows;
-      console.log(apiData);
-      return apiData;
+      setRecipes(data.rows);
     }
     getRecipesData();
   }, []);
@@ -16,9 +15,9 @@ export default function HomePage() {
     <section>
       <h3>Check out some of our most popular recipes:</h3>
       <div>
-        <h4>Recipe 1</h4>
-        <h4>Recipe 2</h4>
-        <h4>Recipe 3</h4>
+        {recipes.map((recipe, index) => {
+          return <h4 key={`recipe${index}`}>{recipe.recipe_name}</h4>;
+        })}
       </div>
       <div>Filter & results section</div>
     </section>

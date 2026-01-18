@@ -15,7 +15,9 @@ app.listen(PORT, () => {
 
 app.get("/", async (req, res) => {
   try {
-    const recipesData = await dbPool.query("SELECT * FROM wk7posts_recipes");
+    const recipesData = await dbPool.query(
+      "SELECT recipe_name FROM wk7posts_recipes LIMIT 3",
+    );
     res.json(recipesData);
   } catch (error) {
     console.error(error);
