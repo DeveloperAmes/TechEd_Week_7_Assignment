@@ -1,9 +1,9 @@
 // Render data from database
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
 export default function RecipePosts() {
-  let { RecipePosts } = useParams();
+  // let { RecipePosts } = useParams();
   const [recipe, setRecipe] = useState([]);
   useEffect(() => {
     async function getRecipeInfo() {
@@ -18,21 +18,15 @@ export default function RecipePosts() {
   return (
     <>
       <section className="recipe-info">
-        <h2>{RecipePosts}</h2>
-        <h3>Ingredients:</h3>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <h3>Instructions:</h3>
-        <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ol>
+        {recipe.map((info, index) => {
+          return (
+            <>
+              <h2 key={index}>{info.recipe_name}</h2>
+              <h3 key={index}>{info.ingredients}</h3>
+              <h3 key={index}>{info.instructions}</h3>
+            </>
+          );
+        })}
       </section>
       <section className="comments-section">
         <h4>Commenter name</h4>
