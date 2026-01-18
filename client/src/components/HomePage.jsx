@@ -12,14 +12,16 @@ export default function HomePage() {
   }, []);
 
   return (
-    <section>
-      <h3>Check out some of our most popular recipes:</h3>
-      <div>
-        {recipes.map((recipe, index) => {
-          return <h4 key={`recipe${index}`}>{recipe.recipe_name}</h4>;
-        })}
-      </div>
-      <div>Filter & results section</div>
-    </section>
+    <>
+      <section className="popular-recipes-section">
+        <h3>Check out some of our most popular recipes:</h3>
+        <div className="popular-recipes-container">
+          {recipes.map((recipe, index) => {
+            return <h4 key={index}>{recipe.recipe_name}</h4>;
+          })}
+        </div>
+      </section>
+      <section className="filter-section">Filter & results section</section>
+    </>
   );
 }

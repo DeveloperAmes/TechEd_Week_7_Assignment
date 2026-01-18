@@ -10,13 +10,13 @@ export default function SiteInfo() {
           recipes.
         </li>
         <li className="info-li">
-          If you want to browse all our recipes, click this link
+          If you want to browse all our recipes, click
           <Link to={"/all-recipes"}> show all recipes.</Link>
         </li>
         <li className="info-li">
           If you have an amazing recipe of your own that you would like to
-          share,{" "}
-          <Link to={"/new-recipe"}>follow this link to add your own.</Link>
+          share,
+          <Link to={"/new-recipe"}> follow this link to add your own.</Link>
         </li>
       </ul>
     </section>
