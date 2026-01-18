@@ -15,7 +15,7 @@ export default function AllRecipes() {
     <>
       <section>
         <h2>All Recipes</h2>
-        <Outlet />
+        {/* <Outlet /> */}
         {allRecipes.map((recipe, index) => {
           return (
             <h4 key={index} className="recipe-card">

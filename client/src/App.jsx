@@ -20,7 +20,7 @@ function App() {
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/new-recipe"} element={<NewRecipeForm />} />
         <Route path={"/all-recipes"} element={<AllRecipes />}>
-          <Route path={":RecipePosts"} element={<RecipePosts />} />
+          {/* <Route path={"RecipePosts"} element={<RecipePosts />} /> */}
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
