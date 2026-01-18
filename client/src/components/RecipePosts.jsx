@@ -8,7 +8,7 @@ export default function RecipePosts() {
   useEffect(() => {
     async function getRecipeInfo() {
       const response = await fetch(
-        "http://localhost:8080/all-recipes/:recipeName",
+        "https://teched-week-7-assignment-server.onrender.com/all-recipes/:recipeName",
       );
       const data = await response.json();
       setRecipe(data.rows);
